@@ -10,21 +10,24 @@ const EndPoint = '/currencies/ticker';
 // per-page = 50 max. 100 min. 1
 // page = 1
 
-async function getCoins(currency) {
+async function getCoins() {
     const id = '';
+    const currency = document.getElementById('convert').value;
     const interval = '';
-    const status = 'active';
+    const status = document.getElementById('status').value;
     const platform = '';
     const sort = 'rank';
     const perPage = '100';
-    const page = '1';
+    const page = '1'; //Max 133
 
     const res = await fetch(`${API+EndPoint+API_KEY}&ids=${id}&convert=${currency}&interval=${interval}&status=${status}&platform-currency=${platform}&sort=${sort}&per-page=${perPage}&page=${page}`)
     const data = await res.json();
 
-    // data.sort((a, b) => {
-    //     return b.price - a.price;
-    // });
+    // console.log(data);
+    
+    data.sort((a, b) => {
+        return b.price - a.price;
+    });
 
     const datos = [];
     for (let i = 0; i < data.length; i++) {
@@ -33,9 +36,11 @@ async function getCoins(currency) {
 
     topCoin(data, convertCoin(datos, currency), 5);
 
+    const section = document.querySelector('.chart');
+    section.innerHTML = '';
 
-    for (let i = 0; i < 20; i++) {
-        hystoryCoin(data, i);
+    for (let i = 0; i < document.getElementById('limit').value; i++) {
+        hystoryCoin(data, i, section);
     }
 }
 
@@ -105,4 +110,4 @@ function topCoin(coin, datos, limit){
     }
 }
 
-getCoins('COP')
+getCoins()

@@ -12,12 +12,18 @@
     <header></header>
     <main>
         <section class="config">
-            <select name="convert" id="convert">
+            <select name="convert" id="convert" onchange="getCoins()">
                 <option value="COP" selected>COP</option>
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
                 <option value="JPY">JPY</option>
             </select>
+            <select name="status" id="status" onchange="getCoins()">
+                <option value="active" selected>Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="dead">Dead</option>
+            </select>
+            <input type="number" id="limit" onchange="getCoins()" value="9">
         </section>
         <section class="top"></section>
         <section class="chart"></section>
