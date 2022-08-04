@@ -1,0 +1,27 @@
+{
+  "name": "exchange",
+  "version": "1.0.0",
+  "description": "Graficas de las criptomonedas desde una API piblica",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KrlozMedina/Exchange.git"
+  },
+  "keywords": [
+    "Criptomonedas",
+    "API",
+    "Graficas"
+  ],
+  "author": "KrlozMedina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KrlozMedina/Exchange/issues"
+  },
+  "homepage": "https://github.com/KrlozMedina/Exchange#readme",
+  "dependencies": {
+    "chart.js": "^3.9.0"
+  }
+}
