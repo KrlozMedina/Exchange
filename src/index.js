@@ -21,6 +21,9 @@ async function getCoins() {
     const page = '1'; //Max 133
 
     const res = await fetch(`${API+EndPoint+API_KEY}&ids=${id}&convert=${currency}&interval=${interval}&status=${status}&platform-currency=${platform}&sort=${sort}&per-page=${perPage}&page=${page}`)
+    
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    
     const data = await res.json();
 
     // console.log(data);
