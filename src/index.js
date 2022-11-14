@@ -20,7 +20,12 @@ async function getCoins() {
     const perPage = '100';
     const page = '1'; //Max 133
 
-    const res = await fetch(`${API+EndPoint+API_KEY}&ids=${id}&convert=${currency}&interval=${interval}&status=${status}&platform-currency=${platform}&sort=${sort}&per-page=${perPage}&page=${page}`)
+    const res = await fetch(`${API+EndPoint+API_KEY}&ids=${id}&convert=${currency}&interval=${interval}&status=${status}&platform-currency=${platform}&sort=${sort}&per-page=${perPage}&page=${page}`, {
+        'mode': 'cors',
+        'headers': {
+            'Access-Control-Allow-Origin': '*'
+        }
+    })
     
     res.setHeader('Access-Control-Allow-Origin', '*')
     
